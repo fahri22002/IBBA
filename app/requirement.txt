@@ -6,3 +6,5 @@ streamlit-plotly-events
 streamlit_image_annotation
 
 ultralytics==8.3.221
+
+pillow==10.4.0
