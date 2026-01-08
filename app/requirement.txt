@@ -1,0 +1,8 @@
+streamlit==1.32.0
+
+streamlit-drawable-canvas
+streamlit-js-eval
+streamlit-plotly-events
+streamlit_image_annotation
+
+ultralytics==8.3.221

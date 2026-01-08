@@ -1,0 +1,5 @@
+path: C:/Users/USER/Documents/a skripsi/workv1/self-training/3-iter/data_iter3
+val: images
+
+nc: 1
+names: ["pelat"]

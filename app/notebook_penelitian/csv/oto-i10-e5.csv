@@ -1,0 +1,11 @@
+model_path,iteration,precision,recall,mAP50,mAP50_95,ril_deletion,ril_addition,est_deletion,est_addition
+C:/Users/USER/Documents/a skripsi/workv1/self-training/1-iter/model1/weights/best.pt,1,0.992754,0.948097,0.970153,0.865884,0,7,2.000000000000009,15.000000000000004
+C:/Users/USER/Documents/a skripsi/workv1/self-training/2-iter/model2/weights/best.pt,2,1.0,0.944637,0.972094,0.867934,0,42,0.0,15.99999999999999
+C:/Users/USER/Documents/a skripsi/workv1/self-training/3-iter/model3/weights/best.pt,3,0.985269,0.923875,0.962141,0.835345,0,72,4.021698636316639,21.999999999999982
+C:/Users/USER/Documents/a skripsi/workv1/self-training/4-iter/model4/weights/best.pt,4,0.995536,0.771626,0.884128,0.787332,0,1,0.9999999999999964,65.99999999999999
+C:/Users/USER/Documents/a skripsi/workv1/self-training/5-iter/model5/weights/best.pt,5,0.965,0.66782,0.82594,0.716238,0,0,7.000000000000006,96.0
+C:/Users/USER/Documents/a skripsi/workv1/self-training/6-iter/model6/weights/best.pt,6,0.963758,0.602076,0.792188,0.670635,0,0,6.885916351263573,115.0
+C:/Users/USER/Documents/a skripsi/workv1/self-training/7-iter/model7/weights/best.pt,7,0.994975,0.685121,0.841528,0.702712,0,28,1.0000000000000044,91.0
+C:/Users/USER/Documents/a skripsi/workv1/self-training/8-iter/model8/weights/best.pt,8,0.99187,0.844291,0.921194,0.749452,22,62,2.0000000000000107,45.000000000000014
+C:/Users/USER/Documents/a skripsi/workv1/self-training/9-iter/model9/weights/best.pt,9,0.98419,0.861592,0.929509,0.75621,4,0,4.000000000000005,40.0
+C:/Users/USER/Documents/a skripsi/workv1/self-training/10-iter/model10/weights/best.pt,10,0.977358,0.896194,0.945965,0.771947,0,6,5.999999999999998,30.00000000000001

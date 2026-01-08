@@ -1,0 +1,47 @@
+/* CSS untuk tombol navigasi agar ukurannya seragam */
+div[data-testid="column"] > div {
+    display: flex;
+    justify-content: center;
+}
+
+button[kind="secondary"] {
+    width: 230px; /* Ubah sesuai kebutuhan */
+    height: 50px;
+    font-size: 16px;
+    font-weight: 600;
+}
+button[kind="save"] {
+    width: 100px; /* Ubah sesuai kebutuhan */
+    height: 40px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* Opsional: tambahkan warna khusus untuk tombol aktif */
+button.active-tab {
+    background-color: #2E8B57 !important;
+    color: white !important;
+    border: none !important;
+}
+
+/* ifrhwhfreihfirf */
+/* === FULL WIDTH MODE UNTUK STREAMLIT === */
+section.main,
+div.block-container {
+    max-width: 100% !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+}
+
+/* Hilangkan margin bawaan di body */
+html, body, [data-testid="stAppViewContainer"], [data-testid="stVerticalBlock"] {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Lebarkan semua kolom agar proporsional */
+[data-testid="stHorizontalBlock"] {
+    width: 100% !important;
+}
