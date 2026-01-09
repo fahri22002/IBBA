@@ -16,6 +16,7 @@ def main():
     if st.session_state.ibba_stage == "idle":
         # show_iteration_info()
         st.info("SELESAI!")
+        data.done_IBBA = True
         return
 
     if st.session_state.ibba_stage == "inputs":

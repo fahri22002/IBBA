@@ -42,7 +42,7 @@ iteration = 1
 
 first_training_dataset_dir = None
 
-
+done_IBBA = False
 
 def reset_data():
     global max_iteration, iteration
@@ -58,6 +58,7 @@ def reset_data():
     global first_training_dataset_dir
     global working_dir
     global is_include_reject_in_auto_annot
+    global done_IBBA
 
     max_iteration = 5
     iteration = 1
@@ -95,3 +96,5 @@ def reset_data():
     eval_path = None
     frame_dir = None
     first_training_dataset_dir = None
+
+    done_IBBA = True

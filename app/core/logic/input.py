@@ -2,7 +2,9 @@ from data import data
 import streamlit as st
 import os
 def inputs():
-    data.working_dir = st.text_input("Masukkan Path folder hasil iterasi :", "C:/Users/USER/Documents/a skripsi/workv1/self-training")
+    runtime_path = os.getcwd()
+    data.working_dir = st.text_input("Masukkan Path folder hasil iterasi :", os.path.join(os.path.dirname(runtime_path), "self-training"))
+    print(f"workdir sedang berjalan di: {data.working_dir}")
     # data.video_path = st.text_input("Masukkan Path video :", "C:/Users/USER/Documents/a skripsi/data/data2.mp4")
     data.video_path = st.text_input("Masukkan Path video :", "C:/Users/USER/Documents/a skripsi/riset/data_video_train/data2.mp4")
     data.model_path = st.text_input("Masukkan Path model awal :", "C:/Users/USER/Documents/a skripsi/riset/model_awal/best.pt")
@@ -35,5 +37,5 @@ def inputs():
     if st.button("Skip", key="skip-extract-btn"):
         data.frame_dir = f"{data.working_dir}/frames_iter"
         st.session_state.ibba_stage = "automatic annotation"
-        # data.iteration = 5
+        data.iteration = 3
         st.rerun()
