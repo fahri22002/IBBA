@@ -37,5 +37,5 @@ def inputs():
     if st.button("Skip", key="skip-extract-btn"):
         data.frame_dir = f"{data.working_dir}/frames_iter"
         st.session_state.ibba_stage = "automatic annotation"
-        data.iteration = 3
+        # data.iteration = 3
         st.rerun()
