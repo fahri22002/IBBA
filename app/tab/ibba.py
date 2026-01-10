@@ -53,6 +53,7 @@ def main():
                 )
         else:
             st.session_state.ibba_stage = "manual correction"
+            st.rerun()
         
     if st.session_state.ibba_stage == "manual correction":
         show_correction_confirmation()

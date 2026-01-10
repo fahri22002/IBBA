@@ -188,17 +188,13 @@ def show_evaluation_summary(workdir, i, new_model, yaml_path, CLASS_NAME, run_na
                     if rill_del >= 0 and rill_add >= 0:
                         data.deletion_count = rill_del
                         data.addition_count = rill_add
-                c1, c2, c3, c4 = st.columns(4)
-                with c1:
-                    st.metric("Estimasi Deletion", f"{est_del:.4f}")
-                with c2:
-                    st.metric("Estimasi Addition", f"{est_add:.4f}")
+                c3, c4 = st.columns(2)
                 with c3:
                     st.metric("Riil Deletion", f"{data.deletion_count:.4f}")
                 with c4:
                     st.metric("Riil Addition", f"{data.addition_count:.4f}")
 
-                st.info(f"np = {np} ngt = {ngt}")
+                # st.info(f"np = {np} ngt = {ngt}")
 
                 st.image(f"{workdir}/{i}-iter/eval_external_{i}/confusion_matrix.png", caption="Confusion Matrix", use_column_width=True)
 
@@ -216,7 +212,7 @@ def show_evaluation_summary(workdir, i, new_model, yaml_path, CLASS_NAME, run_na
 
     st.markdown("---")
 
-    return precision, recall, map50, map5095, est_del, est_add
+    return precision, recall, map50, map5095, 0, 0
 
 def show_training_confirmation(): 
     st.header("Training")
@@ -257,8 +253,8 @@ def simpan_evaluasi_otomatisasi(
                 "mAP50_95",
                 "ril_deletion",
                 "ril_addition",
-                "est_deletion",
-                "est_addition"
+                # "est_deletion",
+                # "est_addition"
             ])
 
         # tambahkan baris evaluasi
@@ -271,8 +267,8 @@ def simpan_evaluasi_otomatisasi(
             f"{map5095:.6f}",
             ril_deletion,
             ril_addition,
-            est_deletion,
-            est_addition
+            # est_deletion,
+            # est_addition
         ])
 
 

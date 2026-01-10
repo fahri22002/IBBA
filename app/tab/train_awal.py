@@ -5,8 +5,10 @@ import os
 
 done = False
 def inputs():
+    st.header("Input Data untuk Training Awal")
     data.epochs_first_training = st.number_input("Masukkan banyak epoch :", min_value=1, value=data.epochs_first_training, step=1, format="%d")
     data.first_training_dataset_dir = st.text_input("Masukkan Path dataset :",  "C:/Users/USER/Documents/a skripsi/work/test otomatisasi")
+    data.train_awal_dir = st.text_input("Masukkan Path Destinasi Model :", os.path.join(os.path.dirname(os.getcwd()), "self-training"))
 
     if st.button("Training", key="Training-btn"):
         st.session_state.first_train_stage = "training"
@@ -15,7 +17,7 @@ def inputs():
 
 def train():
     i = "Awal"
-    st.write(f"🚀 Training model baru (Iterasi {i})...")
+    st.write(f"🚀 Training model Baseline...")
 
     dataset_dir = data.first_training_dataset_dir
     train_dir = f"{dataset_dir}/train"
@@ -28,9 +30,9 @@ def train():
     yaml_path = f"{dataset_dir}/data.yaml"
 
     # Training model
-    new_model = YOLO("yolov11n")
+    new_model = YOLO("yolo11n")
     run_name = f"model{i}"
-    project_dir = f"{data.working_dir}/first_training"
+    project_dir = f"{data.train_awal_dir}/first_training"
     new_model.train(
         data=yaml_path,
         epochs=data.epochs_first_training,

@@ -7,7 +7,7 @@ def inputs():
     print(f"workdir sedang berjalan di: {data.working_dir}")
     # data.video_path = st.text_input("Masukkan Path video :", "C:/Users/USER/Documents/a skripsi/data/data2.mp4")
     data.video_path = st.text_input("Masukkan Path video :", "C:/Users/USER/Documents/a skripsi/riset/data_video_train/data2.mp4")
-    data.model_path = st.text_input("Masukkan Path model awal :", "C:/Users/USER/Documents/a skripsi/riset/model_awal/best.pt")
+    data.model_path = st.text_input("Masukkan Path model awal :", os.path.join(os.getcwd(), "self-training/modelAwal/weights/yolov11n.pt"))
     data.eval_path = st.text_input("Masukkan Path dataset evaluasi :",  "C:/Users/USER/Documents/a skripsi/riset/data_eval_final/test generalisasi")
     data.max_iteration = st.number_input(
         "Masukkan Max Iteration :",

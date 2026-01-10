@@ -10,6 +10,9 @@ def load_css(file_name):
 
 if "loaded" not in st.session_state:
     data.reset_data()
+    mkdir_path = os.path.join(os.path.dirname(os.getcwd()), "self-training")
+    if not os.path.exists(mkdir_path):
+        os.makedirs(mkdir_path)
     st.session_state.loaded = True
 # Muat file CSS
 load_css("app.css")
@@ -39,7 +42,7 @@ with col2:
     if st.button("IBBA", key="btn_ibba"):
         change_tab("IBBA")
 with col3:
-    if st.button("Testing and Predicting", key="btn_testing"):
+    if st.button("Est Corrections", key="btn_testing"):
         change_tab("Eval")
     
 st.markdown("---")
