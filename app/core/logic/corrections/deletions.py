@@ -56,7 +56,6 @@ def manual_correction():
         st.session_state.current_image_idx += 1
         st.rerun()
     # ==== MODE UTAMA ====
-    # if st.session_state.mode == "image":
     if data.deletion_display_mode == 0:
         image = Image.open(img_path).convert("RGB")
         image = draw_all_boxes(image, label_path)
@@ -93,10 +92,8 @@ def manual_correction():
                     st.rerun()
 
             # Baris 2: input fast forward
-            # fast_zone = st.empty()
             with st.container():
                 fastinput = st.columns([1])[0]
-                # default_value = 10 if "fast_num" not in st.session_state else st.session_state.fast_num
                 with fastinput:
                     data.deletion_skip_num = st.number_input("Jumlah Fast forward", min_value=1,
                                     step=1, key="fast_num", value=data.deletion_skip_num)
@@ -141,7 +138,6 @@ def manual_correction():
                         st.rerun()
 
     # ==== MODE PER-BOUNDING-BOX ====
-    # elif st.session_state.mode == "per_box":
     elif data.deletion_display_mode == 1:
         img_name = st.session_state.current_image_name
         img_path = f"{pseudo_dir}/images/{img_name}"
@@ -155,7 +151,7 @@ def manual_correction():
 
         if box_idx >= len(boxes):
             # selesai semua bounding box → tulis label baru berisi yang disimpan
-            # BUAT SKIP KALAU GAADA BB
+
             label_save_path = f"{dataset_dir}/labels/{img_name.replace('.jpg', '.txt')}"
             with open(label_save_path, "w") as lf:
                 for idx in st.session_state.boxes_saved:

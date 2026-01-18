@@ -8,10 +8,8 @@ from core.logic.corrections.utils import back_n_frames
 from core.utils import get_rill_values_by_iteration, save_iteration_result
 def manual_addition():
     workdir = data.working_dir
-    # st.set_page_config(layout="wide")
     st.title("Bounding Box Tool (Drag to Draw)")
     iter_num = data.iteration
-    # st.header(f"ITERASI KE-{iter_num}")
     rejected_dir = f"{workdir}/{iter_num}-iter/reject"
     dataset_dir = f"{workdir}/{iter_num}-iter/data_iter{iter_num}"
 
@@ -29,8 +27,6 @@ def manual_addition():
         st.success("Semua gambar reject telah selesai dikoreksi.")
         st.session_state.current_rejected_image_idx = 0
         data.manual_corrections_mode = 0
-        # st.session_state.on_addition = False
-        # st.session_state.on_correction = True
         data.is_done_correction = True
         data.is_on_correction = False
         st.session_state.ibba_stage = "training"
@@ -66,11 +62,6 @@ def manual_addition():
     if "canvas_key" not in st.session_state:
         st.session_state.canvas_key = 0 
     
-    # st.markdown("""
-    #     <style>
-    #     .stCanvasToolbar {display: none !important;}
-    #     </style>
-    # """, unsafe_allow_html=True)
     st.markdown(
     f"""
     <style>
@@ -99,8 +90,6 @@ def manual_addition():
 
     # Proses hasil bounding box
     if canvas_result.json_data is not None:
-        import json
-        # objs = json.loads(canvas_result.json_data)["objects"]
         objs = canvas_result.json_data["objects"]
 
         bboxes = []
@@ -111,7 +100,6 @@ def manual_addition():
                 w = obj["width"]
                 h = obj["height"]
                 # konversi ke koordinat gambar asli (undo scale)
-                # hindari div0 walau tidak mungkin karena scale > 0
                 x1_orig = int(round(x / scale))
                 y1_orig = int(round(y / scale))
                 x2_orig = int(round((x + w) / scale))

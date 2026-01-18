@@ -119,30 +119,6 @@ def show_evaluation_summary(workdir, i, new_model, yaml_path, CLASS_NAME, run_na
                         break
 
                 yaml_to_use = eval_yaml_path
-                temp_yaml = None
-
-                if eval_yaml_path:
-                    with open(eval_yaml_path, "r") as yf:
-                        txt = yf.read()
-
-                    if "val:" not in txt:
-                        temp_yaml = os.path.join(f"{workdir}/{i}-iter", f"temp_eval_{i}.yaml")
-                        with open(temp_yaml, "w") as tf:
-                            tf.write(
-                                f"val: {eval_test_dir}\n"
-                                f"nc: 1\n"
-                                f"names: ['{CLASS_NAME}']\n"
-                            )
-                        yaml_to_use = temp_yaml
-                else:
-                    temp_yaml = os.path.join(f"{workdir}/{i}-iter", f"temp_eval_{i}.yaml")
-                    with open(temp_yaml, "w") as tf:
-                        tf.write(
-                            f"val: {eval_test_dir}\n"
-                            f"nc: 1\n"
-                            f"names: ['{CLASS_NAME}']\n"
-                        )
-                    yaml_to_use = temp_yaml
 
                 # jalankan evaluasi
                 val_results = new_model.val(
@@ -173,15 +149,6 @@ def show_evaluation_summary(workdir, i, new_model, yaml_path, CLASS_NAME, run_na
                 with c4:
                     st.metric("mAP@50-95", f"{map5095:.4f}")
 
-                # hitung ngt (ground truth boxes)
-                label_dir = os.path.join(eval_test_dir, "labels")
-                ngt = count_ground_truth_boxes(label_dir) if os.path.exists(label_dir) else 0
-
-                # hitung np (predicted boxes)
-                np = val_results.confusion_matrix.matrix[0, :].sum()
-
-                est_add = ngt * (1 - recall)
-                est_del = np * (1 - precision)
 
                 if get_rill_values_by_iteration(f"{workdir}/count.csv", i):
                     rill_del, rill_add = get_rill_values_by_iteration(f"{workdir}/count.csv", i)
@@ -199,9 +166,6 @@ def show_evaluation_summary(workdir, i, new_model, yaml_path, CLASS_NAME, run_na
                 st.image(f"{workdir}/{i}-iter/eval_external_{i}/confusion_matrix.png", caption="Confusion Matrix", use_column_width=True)
 
 
-                # hapus yaml sementara
-                if temp_yaml and os.path.exists(temp_yaml):
-                    os.remove(temp_yaml)
 
             except Exception as e:
                 print(f"Evaluasi dataset external gagal: {e}")

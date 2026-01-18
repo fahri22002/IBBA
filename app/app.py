@@ -55,6 +55,6 @@ if st.session_state.active_tab == "IBBA":
 
 if st.session_state.active_tab == "Eval":
     if data.done_IBBA == False:
-        st.warning("Silakan selesaikan proses IBBA terlebih dahulu sebelum melakukan Testing and Predicting.")
+        st.warning("Silakan selesaikan proses IBBA terlebih dahulu sebelum melakukan Testing and Estimating.")
     else:
         eval.evaluate_estimation()

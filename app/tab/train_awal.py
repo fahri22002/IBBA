@@ -22,12 +22,11 @@ def train():
     dataset_dir = data.first_training_dataset_dir
     train_dir = f"{dataset_dir}/train"
     val_dir = f"{dataset_dir}/val"
-    for d in [train_dir, val_dir]:
-        os.makedirs(f"{d}/images", exist_ok=True)
-        os.makedirs(f"{d}/labels", exist_ok=True)
-
-    # Buat YAML
+    
     yaml_path = f"{dataset_dir}/data.yaml"
+    if not os.path.exists(yaml_path):
+        st.error(f"❌ File konfigurasi tidak ditemukan di: {yaml_path}")
+        return
 
     # Training model
     new_model = YOLO("yolo11n")
